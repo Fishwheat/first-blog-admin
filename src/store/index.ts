@@ -1,8 +1,12 @@
-import { createStore } from "vuex";
+import { defineStore } from 'pinia';
 
-export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+export const useCounterStore = defineStore('counter', {
+  state: () => ({
+    menuType: false,
+  }),
+  actions: {
+    menuTypeHandle() {
+      this.menuType = !this.menuType;
+    },
+  },
 });

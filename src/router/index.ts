@@ -1,26 +1,37 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import RoutesEnum from '@/enums/routes.enums';
+import AccMain from '@/views/acc-main/index.vue';
+import homeRoutes from '@/modules/home/routes';
+import personalRoutes from '@/modules/personal/routes';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    path: '/',
+    name: RoutesEnum.ACCMAIN,
+    component: AccMain,
+    children: [
+      homeRoutes,
+      personalRoutes,
+    ],
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.path === '/') {
+    try {
+      next({
+        name: RoutesEnum.HOME,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  next();
 });
 
 export default router;

@@ -1,14 +1,16 @@
 <template>
-  <div class="home">home</div>
+  <div class="home">
+    <homeContent />
+  </div>
 </template>
 
 <script lang='ts'>
 import {
   onMounted, defineExpose,
 } from 'vue';
+import homeContent from './components/home-content.vue';
 
 export default { name: 'Home' };
-
 </script>
 
 <script lang='ts' setup>
@@ -21,5 +23,7 @@ defineExpose({
 </script>
 
 <style lang='scss'>
-
+.home {
+  height: 100%;
+}
 </style>

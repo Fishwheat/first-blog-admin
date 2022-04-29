@@ -47,11 +47,15 @@ defineExpose({
     background: linear-gradient(135deg,rgb(1, 25, 53),rgb(60, 67, 100));
   }
   .acc-main-container {
+    height: 100vh;
     .acc-main-main {
+      height: calc(100% - 60px);
       margin: 20px;
     }
     .acc-main-header, .acc-main-main {
+      height: 60px;
       background-color: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,.4);
     }
   }
 }

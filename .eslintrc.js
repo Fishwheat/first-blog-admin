@@ -23,5 +23,7 @@ module.exports = {
     'no-param-reassign': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     'global-require':0, // 解决 'en-us': require('./en-us'), 的警告
+    'no-unused-expressions': 0,
+    '@typescript-eslint/no-unused-expressions': 1
   },
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="home-content">
     <el-table :data="filterTableData" style="width: 100%" header-row-class-name="aaa">
-      <el-table-column label="时间" prop="date">
+      <el-table-column label="时间" prop="date" width="200">
         <template #default="scope">
           {{ scope.row.date.toLocaleString() }}
         </template>
@@ -81,7 +81,7 @@ const tableData: table[] = [
     title: 'Hide on bushA人',
     introduction: 'Tom1李相赫（游戏ID：Faker），绰号“大魔王”，1996年5月7日出生于韩国， 《英雄联盟》职业选手，',
     text: '<h1>Tom1李相赫（游戏ID：Faker），绰号“大魔王”，1996年5月7日出生于韩国， 《英雄联盟》职业选手，</h1>',
-    tags: ['Tag 1', 'Tag 2', 'Tag 3'],
+    tags: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 3', 'Tag 3', 'Tag 3', 'Tag 3', 'Tag 3', 'Tag 3'],
   },
   {
     date: new Date(),
@@ -120,7 +120,11 @@ defineExpose({
   overflow: auto;
   // overflow: hidden;
   .table-tag {
+    margin-top: 5px;
     margin-right: 5px;
+    &:first-child {
+      margin-top: 0;
+    }
     &:last-child {
       margin-right: 0;
     }

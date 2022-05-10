@@ -1,6 +1,6 @@
 <template>
-  <div class="acc-side">
-    <div class="acc-side-header" :class="{'acc-side-header-alter': counter.menuType}">
+  <div class="view-side">
+    <div class="view-side-header" :class="{'view-side-header-alter': counter.menuType}">
       <div class="header-logo">
         <img src="@/assets/img/common/logo.png" alt="">
       </div>
@@ -9,7 +9,7 @@
     <el-menu
       router
       :default-active="$route.meta.page"
-      class="acc-side-el-menu"
+      class="view-side-el-menu"
       :collapse="counter.menuType"
       @open="handleOpen"
       @close="handleClose"
@@ -24,8 +24,8 @@
         <el-icon><user /></el-icon>
         <template #title>personal</template>
       </el-menu-item>
-      <!-- 此处若使用el-sub-menu，需要给一个属性popper-class="acc-side-popper"，该类的样式在下面已写好 -->
-      <!-- <el-sub-menu :index="RoutesEnum.HOME" popper-class="acc-side-popper">
+      <!-- 此处若使用el-sub-menu，需要给一个属性popper-class="view-side-popper"，该类的样式在下面已写好 -->
+      <!-- <el-sub-menu :index="RoutesEnum.HOME" popper-class="view-side-popper">
         <template #title>
           <el-icon><Location /></el-icon>
           <span>Navigator One</span>
@@ -63,7 +63,7 @@ import { User, House, Tools } from '@element-plus/icons-vue';
 import RoutesEnum from '@/enums/routes.enums';
 import { useCounterStore } from '@/store';
 
-export default { name: 'AccSide' };
+export default { name: 'ViewSide' };
 </script>
 
 <script lang='ts' setup>
@@ -75,7 +75,7 @@ const handleClose = () => {
   // console.log('handleClose');
 };
 onMounted(() => {
-  console.log('acc-side');
+  console.log('view-side');
 });
 defineExpose({
 });
@@ -98,13 +98,13 @@ defineExpose({
     transform: rotate(-360deg);
   }
 }
-.acc-side {
+.view-side {
   position: relative;
   width: 100%;
   height: 100vh;
   user-select: none;
   overflow: hidden;
-  .acc-side-header {
+  .view-side-header {
     height: 60px;
     width: 100%;
     display: flex;
@@ -130,7 +130,7 @@ defineExpose({
       color: #fff;
     }
   }
-  .acc-side-header-alter {
+  .view-side-header-alter {
     justify-content: center;
     padding-left: 0;
     .header-logo {
@@ -158,7 +158,7 @@ defineExpose({
       animation: iconRotate 3s linear infinite;
     }
   }
-  .acc-side-el-menu {
+  .view-side-el-menu {
     height: calc(100% - 60px);
     background: linear-gradient(135deg,rgb(1, 25, 53),rgb(60, 67, 100));
   }
@@ -169,7 +169,7 @@ defineExpose({
     border: none;
   }
 }
-.el-popper.acc-side-popper {
+.el-popper.view-side-popper {
   background: linear-gradient(135deg,rgb(1, 25, 53),rgb(60, 67, 100));
   .el-menu {
     --el-menu-hover-bg-color:rgb(77, 84, 122);

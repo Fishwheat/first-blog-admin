@@ -1,10 +1,14 @@
 const RoutesEnum = {
+  // 登录
+  LOGIN: 'Login',
+  // 注册
+  REGISTER: 'Register',
   // 入口
-  ACCMAIN: 'AccMain',
+  VIEWMAIN: 'ViewMain',
   // 侧边栏
-  ACCSIDE: 'AccSide',
+  VIEWSIDE: 'ViewSide',
   // 顶部
-  ACCHEADER: 'AccHeader',
+  VIEWHEADER: 'ViewHeader',
   // 主页
   HOME: 'Home',
   // 个人简介

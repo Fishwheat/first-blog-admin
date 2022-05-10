@@ -1,14 +1,14 @@
 <template>
-  <div class="acc-main">
+  <div class="view-main">
     <el-container>
-      <el-aside class="acc-main-aside" :style="sideStyles">
-        <AccSide />
+      <el-aside class="view-main-aside" :style="sideStyles">
+        <ViewSide />
       </el-aside>
-      <el-container class="acc-main-container">
-        <el-header class="acc-main-header">
-          <AccHeader />
+      <el-container class="view-main-container">
+        <el-header class="view-main-header">
+          <ViewHeader />
         </el-header>
-        <el-main class="acc-main-main">
+        <el-main class="view-main-main">
           <router-view></router-view>
         </el-main>
       </el-container>
@@ -18,11 +18,11 @@
 
 <script lang='ts'>
 import { onMounted, defineExpose, computed } from 'vue';
-import AccHeader from '@/views/acc-header/index.vue';
-import AccSide from '@/views/acc-side/index.vue';
 import { useCounterStore } from '@/store';
+import ViewHeader from '@/views/view-header/index.vue';
+import ViewSide from '@/views/view-side/index.vue';
 
-export default { name: 'AccMain' };
+export default { name: 'ViewMain' };
 
 </script>
 
@@ -38,21 +38,21 @@ defineExpose({
 </script>
 
 <style lang='scss'>
-.acc-main {
+.view-main {
   width: 100vw;
   height: 100vh;
   background-color: #dcdfe6;
-  .acc-main-aside {
+  .view-main-aside {
     transition: width .3s;
     background: linear-gradient(135deg,rgb(1, 25, 53),rgb(60, 67, 100));
   }
-  .acc-main-container {
+  .view-main-container {
     height: 100vh;
-    .acc-main-main {
+    .view-main-main {
       height: calc(100% - 60px);
       margin: 20px;
     }
-    .acc-main-header, .acc-main-main {
+    .view-main-header, .view-main-main {
       height: 60px;
       background-color: #ffffff;
       border-bottom: 1px solid rgba(0,0,0,.4);

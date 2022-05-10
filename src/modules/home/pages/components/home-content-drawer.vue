@@ -237,7 +237,12 @@ const cancelClick = () => {
 };
 const confirmClick = () => {
   // console.log({ ...form });
-  emit('update:visible', false);
+  formRef.value?.validate((valid) => {
+    if (valid) {
+      console.log(123);
+      emit('update:visible', false);
+    }
+  });
 };
 // 右下角按钮模块end
 

@@ -1,11 +1,11 @@
 <template>
-  <div class="acc-header">
-    <div class="acc-header-menuType" @click="menuTypeClick">
+  <div class="view-header">
+    <div class="view-header-menuType" @click="menuTypeClick">
       <el-icon color="#555" :size="32">
         <component :is="counter.menuType ? Expand : Fold" />
       </el-icon>
     </div>
-    <div class="acc-header-dropdown">
+    <div class="view-header-dropdown">
       <el-dropdown>
         <span class="el-dropdown-link">
           欢迎，Fishwheat
@@ -34,11 +34,15 @@ import {
   Fold, Expand, ArrowDown, Key, CircleClose,
 } from '@element-plus/icons-vue';
 import { useCounterStore } from '@/store';
+import { storage } from '@/helpers/storage';
+import { useRouter } from 'vue-router';
+import RoutesEnum from '@/enums/routes.enums';
 
-export default { name: 'AccHeader' };
+export default { name: 'ViewHeader' };
 </script>
 
 <script lang='ts' setup>
+const router = useRouter();
 const counter = useCounterStore();
 const menuTypeClick = () => {
   counter.menuTypeHandle();
@@ -47,28 +51,30 @@ const uploadPasswordClick = () => {
   console.log('uploadPasswordClick');
 };
 const dropOutClick = () => {
+  storage.value.token = '';
+  router.replace({ name: RoutesEnum.LOGIN });
   console.log('dropOutClick');
 };
 onMounted(() => {
-  // console.log('acc-header');
+  // console.log('view-header');
 });
 defineExpose({
 });
 </script>
 
 <style lang='scss'>
-.acc-header {
+.view-header {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .acc-header-menuType {
+  .view-header-menuType {
     width: 32px;
     height: 32px;
     cursor: pointer;
   }
-  .acc-header-dropdown {
+  .view-header-dropdown {
     cursor: pointer;
     .example-showcase .el-dropdown-link {
       display: flex;

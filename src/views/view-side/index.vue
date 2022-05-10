@@ -75,7 +75,7 @@ const handleClose = () => {
   // console.log('handleClose');
 };
 onMounted(() => {
-  console.log('view-side');
+  // console.log('view-side');
 });
 defineExpose({
 });

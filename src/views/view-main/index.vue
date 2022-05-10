@@ -48,14 +48,14 @@ defineExpose({
   }
   .view-main-container {
     height: 100vh;
-    .view-main-main {
-      height: calc(100% - 60px);
-      margin: 20px;
-    }
     .view-main-header, .view-main-main {
       height: 60px;
       background-color: #ffffff;
       border-bottom: 1px solid rgba(0,0,0,.4);
+    }
+    .view-main-main {
+      height: calc(100% - 60px);
+      margin: 20px;
     }
   }
 }

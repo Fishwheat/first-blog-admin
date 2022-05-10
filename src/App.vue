@@ -1,6 +1,12 @@
 <template>
   <router-view />
+  <IsLoading />
 </template>
+
+<script lang="ts" setup>
+import IsLoading from '@/components/blog-loading/index.vue';
+
+</script>
 
 <style lang="scss">
 * {
